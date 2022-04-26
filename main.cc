@@ -71,9 +71,18 @@ vector<studentData> readData(ifstream& inp, string file)
 			  string lastname = stmp.substr(0,commaPos);
 			  int quotePos = stmp.find('"');
 			  string firstname = stmp.substr(commaPos+1, quotePos-commaPos-1);
+
+			  // get ALEKS Completed
+			  int commaCount = 0;
+			  int aleksCount = 0;
+			  while(commaCount < 9){
+				  if(commaCount == 8){
+					// aleksCount = 
+				  }
+			  }
+
 			  cout << lastname << " " << firstname << endl;
 
-			  //get ALEKS Completed
 		  }
 		  
 	    }
