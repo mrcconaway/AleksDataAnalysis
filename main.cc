@@ -10,7 +10,8 @@ struct userInput{
 	string s;
 };
 struct studentData{
-	string name;
+	string fname;
+	string lname;
 	int count = 0;
 };
 
@@ -37,7 +38,7 @@ int main(int argc, char* argv[])
 	ifstream data;
     students = readData(data, csv.s);
     for(int i = 0 ; i < students.size(); ++i){
-        cout << students[i].name << " " << students[i].count << endl;
+        cout << students[i].lname << ", " << students[i].fname << students[i].count << endl;
     }
 
 	return 0;
@@ -54,10 +55,27 @@ vector<studentData> readData(ifstream& inp, string file)
 	    int itmp;
 	    getline(inp, stmp);
 	    stmp = stmp.substr(1); // remove that pesky front " in csv file
-	    results.push_back({stmp, -1});
+	    results.push_back({stmp," ", -1});
+		int i = 0;
 	    while(!inp.eof())
 	    {
-	      getline(inp, stmp);
+	      if(i < 5) {
+	      		getline(inp, stmp); // trash lines
+				i++;
+		  }
+	      getline(inp, stmp); // trash lines
+		  if(stmp[0] == '"'){
+			  // parse first and last name
+			  stmp = stmp.substr(1); // remove first "
+			  int commaPos = stmp.find(",");
+			  string lastname = stmp.substr(0,commaPos);
+			  int quotePos = stmp.find('"');
+			  string firstname = stmp.substr(commaPos+1, quotePos-commaPos-1);
+			  cout << lastname << " " << firstname << endl;
+
+			  //get ALEKS Completed
+		  }
+		  
 	    }
 
 	    }
