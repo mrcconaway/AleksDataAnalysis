@@ -20,18 +20,14 @@ vector<studentData> readData(ifstream& inp, string file);
 int main(int argc, char* argv[])
 {
 
+	program test(argc, argv); 
 	// for(int i = 1; i < argc; ++i){
 	// 	cout << argc << endl;
 	// 	if(i == 1) {csv.f = true; csv.s = argv[i];}
 	// 	if(i == 2) {roster.f = true; roster.s = argv[i];}
 	// 	if(i == 3) {output.s = true; output.s = argv[i];}
 	// }
-	for(int i = 0; i < argc; ++i){
-		cout << "HELLOOOOO" ;
-		cout << argv[i] << endl;
-	}
-	char tmp;
-	cin >> tmp;
+
 	// vector<studentData> students;
 	// ifstream data;
     // students = readData(data, csv.s);

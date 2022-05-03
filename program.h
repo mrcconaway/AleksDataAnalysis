@@ -7,8 +7,9 @@
 
 class program
 {
+public:
+    program(int argc, char* argv[]);
     program();
-
 
 
 private:
